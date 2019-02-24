@@ -206,3 +206,11 @@ ro.com.android.mobiledata=false
 persist.radio.mobile.data=0,0
 persist.meta.dumpdata=0
 ro.mtk_md_sbp_custom_value=0
+
+# needed for logcat
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.service.adb.enable=1 \
+persist.sys.usb.config=mtp,adb \
+ro.debuggable=1 \
+ro.adb.secure=0 \
+ro.secure=0

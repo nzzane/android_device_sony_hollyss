@@ -1,5 +1,4 @@
-#
-# Copyright 2015 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,14 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# This file is executed by build/envsetup.sh, and can use anything
-# defined in envsetup.sh.
-#
-# In particular, you can add lunch options with the add_lunch_combo
-# function: add_lunch_combo generic-eng
+LOCAL_PATH := $(call my-dir)
 
-add_lunch_combo lineage_hollyss-userdebug
-add_lunch_combo lineage_hollyss-user
-add_lunch_combo lineage_hollyss-eng
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := power.c
+
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_RELATIVE_PATH := hw
+
+LOCAL_SHARED_LIBRARIES := liblog
+
+LOCAL_MODULE := power.$(TARGET_BOARD_PLATFORM)
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MODULE_OWNER := mtk
+
+include $(BUILD_SHARED_LIBRARY)
